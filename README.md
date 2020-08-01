@@ -1,2 +1,1 @@
-# thesite
-Created with CodeSandbox
+# mysite
