@@ -16,8 +16,6 @@ export default function Home() {
       <Content>
         Hi, I started this site as a way to work with the garage door open. I
         have some ideas I am interested in working on and I want to share them.
-        I am extremely interested in organizational and productivity systems as
-        well as developing an extended mind so thats where I'll start. Stay
         tuned.
       </Content>
     </PageLayout>
