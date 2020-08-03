@@ -11,12 +11,8 @@ const HeaderWrapper = styled.header`
   padding: 0 16px;
   position: fixed;
   top: 0;
-  background: linear-gradient(
-    to right,
-    ${p => p.theme.primaryColor},
-    ${p => p.theme.secondaryColor}
-  );
-  border-bottom: ${p => p.theme.secondaryColor} solid 3px;
+  left: 0;
+  background: #f5f5f5;
 `;
 
 const Menu = styled.nav`
@@ -104,11 +100,12 @@ export function Header() {
         <StyledLink to="/" isActive={pathname === "/"}>
           Home
         </StyledLink>
+        <StyledLink to="/notes" isActive={pathname === "/notes"}>
+          Notes
+        </StyledLink>
         <StyledLink to="/portfolio" isActive={pathname === "/portfolio"}>
           Projects
         </StyledLink>
-
-        <Toggle isActive={id === "dark"} onToggle={setTheme} />
       </Menu>
     </HeaderWrapper>
   );

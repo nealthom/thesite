@@ -2,7 +2,7 @@ const theme = {
   id: "light",
   primaryColor: "#ff0015",
   secondaryColor: "#ffac00",
-  bodyBackgroundColor: "white",
+  bodyBackgroundColor: "#f8fbf8",
   bodyFontColor: "black"
 };
 
