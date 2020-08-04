@@ -17,6 +17,10 @@ const Content = styled.main`
   h6 {
     font-family: "Kaushan Script";
   }
+
+  @media (min-width: 768px) {
+    margin: 180px auto 0 auto;
+  }
 `;
 
 export function PageLayout({ children }) {

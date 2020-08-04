@@ -13,7 +13,7 @@ const HeaderWrapper = styled.header`
   left: 0;
   background: #f5f5f5;
   @media (min-width: 768px) {
-    justify-content: center;
+    height: 100px;
   }
 `;
 
@@ -36,6 +36,7 @@ const Menu = styled.nav`
     top: initial;
     position: relative;
     width: initial;
+
     border-bottom: none;
     margin: auto 0 auto auto;
   }
@@ -82,6 +83,7 @@ const MobileMenuIcon = styled.div`
 const TitleWrapper = styled.div`
   display: flex;
   align-items: center;
+  color: #d8073f;
 `;
 
 export function Header() {
