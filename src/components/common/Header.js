@@ -84,6 +84,11 @@ const TitleWrapper = styled.div`
   display: flex;
   align-items: center;
   color: #d8073f;
+  font-size: 0.75rem;
+
+  @media (min-width: 768px) {
+    font-size: 1.25rem;
+  }
 `;
 
 export function Header() {
