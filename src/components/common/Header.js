@@ -80,11 +80,12 @@ const MobileMenuIcon = styled.div`
   }
 `;
 
-const TitleWrapper = styled.div`
+const TitleWrapper = styled(Link)`
   display: flex;
   align-items: center;
   color: #d8073f;
   font-size: 0.75rem;
+  text-decoration: none;
 
   @media (min-width: 768px) {
     font-size: 1.25rem;
@@ -96,7 +97,7 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <HeaderWrapper>
-      <TitleWrapper>
+      <TitleWrapper to="/">
         <h1>Thomas Neal</h1>
       </TitleWrapper>
       <MobileMenuIcon onClick={() => setMenuOpen(s => !s)}>
