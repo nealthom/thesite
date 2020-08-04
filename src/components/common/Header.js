@@ -1,7 +1,6 @@
-import React, { useState, useContext } from "react";
-import styled, { ThemeContext } from "styled-components";
+import React, { useState } from "react";
+import styled from "styled-components";
 import { Link as ReactRouterLink, useLocation } from "react-router-dom";
-import { Toggle } from "./Toggle";
 
 const HeaderWrapper = styled.header`
   height: 50px;
@@ -13,6 +12,9 @@ const HeaderWrapper = styled.header`
   top: 0;
   left: 0;
   background: #f5f5f5;
+  @media (min-width: 768px) {
+    justify-content: center;
+  }
 `;
 
 const Menu = styled.nav`
@@ -85,7 +87,6 @@ const TitleWrapper = styled.div`
 export function Header() {
   const { pathname } = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
-  const { id, setTheme } = useContext(ThemeContext);
   return (
     <HeaderWrapper>
       <TitleWrapper>
