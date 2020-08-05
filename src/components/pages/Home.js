@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <PageLayout>
       <Content>
-        Hi, I started this site as a way to work with the garage door open. Stay
+        Hi, this site as a way for me to work with the garage door open. Stay
         Tuned.
       </Content>
     </PageLayout>
