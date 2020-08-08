@@ -21,16 +21,16 @@ export default function Portfolio() {
               floor when a guest asks about a particular machine. Try it out by
               typing wolf, we have several of those.
             </p>
-          </a>,
-          <a
-            href="http://github.com/nealthom"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h3>more at my github</h3>
           </a>
         ]}
       />
+      <a
+        href="http://github.com/nealthom"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <h3>more at my github</h3>
+      </a>
     </PageLayout>
   );
 }
