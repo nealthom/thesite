@@ -14,7 +14,7 @@ const Content = styled.p`
 export default function Notes() {
   useEffect(() => {
     async function getData() {
-      // const url = "https://arcane-oasis-30423.herokuapp.com/test";
+      //  const url = "https://arcane-oasis-30423.herokuapp.com/test";
       const url = "https://go0oc.sse.codesandbox.io/test";
       const response = await axios.get(url);
       console.log(response.data.msg);
