@@ -6,6 +6,7 @@ import Home from "components/pages/Home";
 import Portfolio from "components/pages/Portfolio";
 import Notes from "components/pages/Notes";
 import Blog from "components/pages/Blog";
+import Login from "components/pages/Login";
 import LightTheme from "themes/light";
 import DarkTheme from "themes/dark";
 
@@ -16,9 +17,9 @@ const GlobalStyle = createGlobalStyle`
   }
 
 body{
-  background: ${p => p.theme.bodyBackgroundColor};
+  background: ${(p) => p.theme.bodyBackgroundColor};
   min-height: 100vh;
-  color: ${p => p.theme.bodyFontColor};
+  color: ${(p) => p.theme.bodyFontColor};
   font-family: 'Kaushan Script'
 }
 `;
@@ -30,7 +31,7 @@ export default function App() {
       theme={{
         ...theme,
         setTheme: () => {
-          setTheme(s => (s.id === "light" ? DarkTheme : LightTheme));
+          setTheme((s) => (s.id === "light" ? DarkTheme : LightTheme));
         }
       }}
     >
@@ -45,6 +46,9 @@ export default function App() {
           </Route>
           <Route path="/blog">
             <Blog />
+          </Route>
+          <Route path="/login">
+            <Login />
           </Route>
           <Route path="/">
             <Home />
