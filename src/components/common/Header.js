@@ -115,6 +115,9 @@ export function Header() {
         <StyledLink to="/portfolio" isActive={pathname === "/portfolio"}>
           Projects
         </StyledLink>
+        <StyledLink to="/login" isActive={pathname === "/login"}>
+          Login
+        </StyledLink>
       </Menu>
     </HeaderWrapper>
   );
