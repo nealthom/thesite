@@ -18,7 +18,7 @@ const HeaderWrapper = styled.header`
 `;
 
 const Menu = styled.nav`
-  display: ${p => (p.open ? "block" : "none")};
+  display: ${(p) => (p.open ? "block" : "none")};
   font-family: "Open Sans";
   position: absolute;
   width: 100%;
@@ -26,8 +26,8 @@ const Menu = styled.nav`
   left: 0;
   padding: 8px;
   box-sizing: border-box;
-  background: ${p => p.theme.bodyBackgroundColor};
-  border-bottom: ${p => p.theme.secondaryColor} solid 3px;
+  background: ${(p) => p.theme.bodyBackgroundColor};
+  border-bottom: ${(p) => p.theme.secondaryColor} solid 3px;
 
   @media (min-width: 768px) {
     display: flex;
@@ -52,8 +52,8 @@ const StyledLink = styled(Link)`
   text-align: center;
   box-sizing: border-box;
   margin: auto 0;
-  font-weight: ${p => (p.isActive ? "bold" : "normal")};
-  color: ${p => p.theme.bodyFontColor};
+  font-weight: ${(p) => (p.isActive ? "bold" : "normal")};
+  color: ${(p) => p.theme.bodyFontColor};
 `;
 
 const MobileMenuIcon = styled.div`
@@ -70,7 +70,7 @@ const MobileMenuIcon = styled.div`
 
   > div {
     height: 3px;
-    background: ${p => p.theme.bodyFontColor};
+    background: ${(p) => p.theme.bodyFontColor};
     margin: 5px 0;
     width: 100%;
   }
@@ -100,7 +100,7 @@ export function Header() {
       <TitleWrapper to="/">
         <h1>Thomas Neal</h1>
       </TitleWrapper>
-      <MobileMenuIcon onClick={() => setMenuOpen(s => !s)}>
+      <MobileMenuIcon onClick={() => setMenuOpen((s) => !s)}>
         <div />
         <div />
         <div />
@@ -114,9 +114,6 @@ export function Header() {
         </StyledLink>
         <StyledLink to="/portfolio" isActive={pathname === "/portfolio"}>
           Projects
-        </StyledLink>
-        <StyledLink to="/login" isActive={pathname === "/login"}>
-          Login
         </StyledLink>
       </Menu>
     </HeaderWrapper>
