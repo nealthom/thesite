@@ -18,7 +18,7 @@ const largeStyles = ({ large }) => {
 
 const Button = styled.button`
   color: white;
-  background: ${p =>
+  background: ${(p) =>
     p.secondary ? p.theme.secondaryColor : p.theme.primaryColor};
   font-weight: bold;
   ${largeStyles}
@@ -31,6 +31,10 @@ const Button = styled.button`
   &:disabled {
     background: #eee;
     color: #666;
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 `;
 
