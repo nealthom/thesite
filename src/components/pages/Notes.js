@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-import axios from "axios";
 import { PageLayout } from "components/common";
 
 const Content = styled.p`
@@ -12,15 +11,6 @@ const Content = styled.p`
 `;
 
 export default function Notes() {
-  useEffect(() => {
-    async function getData() {
-      //const url = "https://arcane-oasis-30423.herokuapp.com/test";
-      const url = "https://go0oc.sse.codesandbox.io/test";
-      const response = await axios.post(url, { name: "John" });
-      console.log(JSON.stringify(response.data.msg));
-    }
-    getData();
-  }, []);
   return (
     <PageLayout>
       <Content>These are the notes.</Content>

@@ -7,6 +7,7 @@ import {
   Spinner
 } from "components/common";
 import styled from "styled-components";
+import axios from "axios";
 
 const Form = styled.form`
   width: 100%;
@@ -36,7 +37,7 @@ export default function Login() {
 
   function handleInputChange(e) {
     e.persist();
-    setFormFields((s) => ({
+    setFormFields(s => ({
       ...s,
       [e.target.name]: e.target.value
     }));
@@ -45,9 +46,15 @@ export default function Login() {
   function handleSubmit(e) {
     e.preventDefault();
     setLoading(true);
-    timeout = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
+
+    async function getData() {
+      const url = "https://arcane-oasis-30423.herokuapp.com/test";
+      //const url = "https://go0oc.sse.codesandbox.io/test";
+      const response = await axios.post(url, { name: "John" });
+      console.log(JSON.stringify(response.data.msg));
+    }
+    getData();
+    setLoading(false);
   }
 
   useEffect(() => {
