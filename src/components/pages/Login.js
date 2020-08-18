@@ -34,7 +34,11 @@ if (localStorage.token) {
 }
 
 export default function Login() {
-  const [formFields, setFormFields] = useState({ username: "", password: "" });
+  const [formFields, setFormFields] = useState({
+    username: "",
+    email: "",
+    password: ""
+  });
   const [loading, setLoading] = useState(false);
 
   function handleInputChange(e) {
@@ -50,13 +54,9 @@ export default function Login() {
     setLoading(true);
 
     async function getData() {
-      //const url = "https://arcane-oasis-30423.herokuapp.com/test";
-      const url = "https://go0oc.sse.codesandbox.io/users/register";
-      const response = await axios.post(url, {
-        name: "John",
-        email: "john@john.com",
-        password: "abcd1234"
-      });
+      const url = "https://arcane-oasis-30423.herokuapp.com/users/register";
+      // const url = "https://go0oc.sse.codesandbox.io/users/register";
+      const response = await axios.post(url, formFields);
       console.log(JSON.stringify(response.data.token));
     }
     getData();
@@ -77,6 +77,13 @@ export default function Login() {
               onChange={handleInputChange}
               value={formFields.username}
               type="text"
+            />
+            <Input
+              name="email"
+              placeholder="Email"
+              onChange={handleInputChange}
+              value={formFields.email}
+              type="email"
             />
 
             <PasswordInput
