@@ -30,8 +30,6 @@ const Form = styled.form`
   }
 `;
 
-let timeout;
-
 export default function Login() {
   const [formFields, setFormFields] = useState({ username: "", password: "" });
   const [loading, setLoading] = useState(false);
@@ -49,22 +47,18 @@ export default function Login() {
     setLoading(true);
 
     async function getData() {
-      const url = "https://arcane-oasis-30423.herokuapp.com/test";
-      //const url = "https://go0oc.sse.codesandbox.io/test";
-      const response = await axios.post(url, { name: "John" });
-      console.log(JSON.stringify(response.data.msg));
+      //const url = "https://arcane-oasis-30423.herokuapp.com/test";
+      const url = "https://go0oc.sse.codesandbox.io/users/register";
+      const response = await axios.post(url, {
+        name: "John",
+        email: "john@john.com",
+        password: "abcd1234"
+      });
+      console.log(JSON.stringify(response.data.token));
     }
     getData();
     setLoading(false);
   }
-
-  useEffect(() => {
-    return () => {
-      if (timeout) {
-        clearTimeout(timeout);
-      }
-    };
-  }, []);
 
   return (
     <PageLayout>
