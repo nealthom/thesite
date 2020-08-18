@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+//import axios from "axios";
 import {
   PageLayout,
   Input,
@@ -37,7 +38,7 @@ export default function Login() {
 
   function handleInputChange(e) {
     e.persist();
-    setFormFields(s => ({
+    setFormFields((s) => ({
       ...s,
       [e.target.name]: e.target.value
     }));
