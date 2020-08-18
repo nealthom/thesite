@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-//import axios from "axios";
+import React, { useState } from "react";
+import axios from "axios";
 import {
   PageLayout,
   Input,
@@ -8,8 +8,7 @@ import {
   Spinner
 } from "components/common";
 import styled from "styled-components";
-import axios from "axios";
-
+import setAuthToken from "../../utils/setAuthToken";
 const Form = styled.form`
   width: 100%;
   max-width: 400px;
@@ -29,6 +28,10 @@ const Form = styled.form`
     margin-top: 40px;
   }
 `;
+
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
 
 export default function Login() {
   const [formFields, setFormFields] = useState({ username: "", password: "" });
