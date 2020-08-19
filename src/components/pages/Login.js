@@ -54,7 +54,7 @@ export default function Login() {
     setLoading(true);
 
     async function getData() {
-      const url = "https://arcane-oasis-30423.herokuapp.com/users/register";
+      const url = "https://arcane-oasis-30423.herokuapp.com/users/login";
       // const url = "https://go0oc.sse.codesandbox.io/users/register";
 
       const response = await axios.post(url, formFields);
