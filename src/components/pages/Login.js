@@ -9,6 +9,9 @@ import {
 } from "components/common";
 import styled from "styled-components";
 import setAuthToken from "../../utils/setAuthToken";
+
+import { useDispatch } from "react-redux";
+
 const Form = styled.form`
   width: 100%;
   max-width: 400px;
@@ -40,6 +43,7 @@ export default function Login() {
     password: ""
   });
   const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
 
   function handleInputChange(e) {
     e.persist();
@@ -58,7 +62,10 @@ export default function Login() {
       // const url = "https://go0oc.sse.codesandbox.io/users/register";
 
       const response = await axios.post(url, formFields);
-      console.log(JSON.stringify(response.data.token));
+      dispatch({
+        type: "LOGIN_SUCCES",
+        payload: response.data
+      });
     }
     getData();
     setLoading(false);

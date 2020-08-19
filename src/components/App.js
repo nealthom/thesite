@@ -7,6 +7,9 @@ import Routes from "./routing/Routes";
 import LightTheme from "themes/light";
 import DarkTheme from "themes/dark";
 
+import { Provider } from "react-redux";
+import store from "../store";
+
 const GlobalStyle = createGlobalStyle`
 
 *{
@@ -24,23 +27,25 @@ body{
 export default function App() {
   const [theme, setTheme] = useState(LightTheme);
   return (
-    <ThemeProvider
-      theme={{
-        ...theme,
-        setTheme: () => {
-          setTheme((s) => (s.id === "light" ? DarkTheme : LightTheme));
-        }
-      }}
-    >
-      <GlobalStyle />
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route component={Routes} />
-        </Switch>
-      </BrowserRouter>
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider
+        theme={{
+          ...theme,
+          setTheme: () => {
+            setTheme((s) => (s.id === "light" ? DarkTheme : LightTheme));
+          }
+        }}
+      >
+        <GlobalStyle />
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route component={Routes} />
+          </Switch>
+        </BrowserRouter>
+      </ThemeProvider>
+    </Provider>
   );
 }
