@@ -15,7 +15,7 @@ import { useDispatch } from "react-redux";
 const Form = styled.form`
   width: 100%;
   max-width: 400px;
-  background: white;
+  background: whitesmoke;
   border: 1px solid #eee;
   padding: 16px;
   box-sizing: border-box;
@@ -47,7 +47,7 @@ export default function Login() {
 
   function handleInputChange(e) {
     e.persist();
-    setFormFields(s => ({
+    setFormFields((s) => ({
       ...s,
       [e.target.name]: e.target.value
     }));
