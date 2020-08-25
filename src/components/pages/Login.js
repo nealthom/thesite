@@ -55,11 +55,11 @@ export default function Login() {
     setLoading(true);
 
     async function getData() {
-      const url = "https://arcane-oasis-30423.herokuapp.com/users/login";
-      // const url = "https://go0oc.sse.codesandbox.io/users/register";
+      const url = "https://arcane-oasis-30423.herokuapp.com/users";
+      //const url = "https://go0oc.sse.codesandbox.io/login";
       //const url = "http://localhost:3000/users/login";
-
-      const response = await axios.post(url, formFields);
+      console.log(axios.defaults.headers.common["x-auth-token"]);
+      const response = await axios.get(url);
       console.log(response);
       dispatch({
         type: "LOGIN_SUCCESS",

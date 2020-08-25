@@ -98,7 +98,6 @@ export function Header() {
   const { pathname } = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const isAuthenticated = useSelector((state) => state.isAuthenticated);
-  console.log(isAuthenticated);
   const dispatch = useDispatch();
 
   const logout = () => {
