@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 import { Link as ReactRouterLink, useLocation } from "react-router-dom";
 
@@ -95,6 +97,16 @@ const TitleWrapper = styled(Link)`
 export function Header() {
   const { pathname } = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
+  const isAuthenticated = useSelector((state) => state.isAuthenticated);
+  console.log(isAuthenticated);
+  const dispatch = useDispatch();
+
+  const logout = () => {
+    dispatch({
+      type: "LOGOUT"
+    });
+    return <Redirect to="/login" />;
+  };
   return (
     <HeaderWrapper>
       <TitleWrapper to="/">
@@ -115,9 +127,16 @@ export function Header() {
         <StyledLink to="/portfolio" isActive={pathname === "/portfolio"}>
           Projects
         </StyledLink>
-        <StyledLink to="/login" isActive={pathname === "/login"}>
-          Login
-        </StyledLink>
+        {!isAuthenticated && (
+          <StyledLink to="/login" isActive={pathname === "/login"}>
+            Login
+          </StyledLink>
+        )}
+        {isAuthenticated && (
+          <StyledLink to="/login" onClick={logout}>
+            Logout
+          </StyledLink>
+        )}
       </Menu>
     </HeaderWrapper>
   );

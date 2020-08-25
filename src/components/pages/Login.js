@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
 import {
@@ -10,9 +10,6 @@ import {
   Spinner
 } from "components/common";
 import styled from "styled-components";
-import setAuthToken from "../../utils/setAuthToken";
-
-import { useDispatch } from "react-redux";
 
 const Form = styled.form`
   width: 100%;
@@ -34,10 +31,6 @@ const Form = styled.form`
   }
 `;
 
-if (localStorage.token) {
-  setAuthToken(localStorage.token);
-}
-
 export default function Login() {
   const [formFields, setFormFields] = useState({
     name: "",
@@ -45,12 +38,13 @@ export default function Login() {
     password: ""
   });
   const [loading, setLoading] = useState(false);
-  const isAuthenticated = useSelector(state => state);
+  const isAuthenticated = useSelector((state) => state.isAuthenticated);
+
   const dispatch = useDispatch();
 
   function handleInputChange(e) {
     e.persist();
-    setFormFields(s => ({
+    setFormFields((s) => ({
       ...s,
       [e.target.name]: e.target.value
     }));
@@ -67,10 +61,6 @@ export default function Login() {
 
       const response = await axios.post(url, formFields);
       console.log(response);
-      dispatch({
-        type: "LOGIN_SUCCESS",
-        payload: response.data
-      });
       dispatch({
         type: "LOGIN_SUCCESS",
         payload: response.data

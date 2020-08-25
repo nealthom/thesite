@@ -7,6 +7,8 @@ import Routes from "./routing/Routes";
 import LightTheme from "themes/light";
 import DarkTheme from "themes/dark";
 
+import setAuthToken from "../utils/setAuthToken";
+
 import { Provider } from "react-redux";
 import store from "../store";
 
@@ -23,6 +25,10 @@ body{
   font-family: 'Kaushan Script'
 }
 `;
+
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
 
 export default function App() {
   const [theme, setTheme] = useState(LightTheme);
