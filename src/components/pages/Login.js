@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { Redirect } from "react-router-dom";
 import axios from "axios";
 import {
   PageLayout,
@@ -43,11 +45,12 @@ export default function Login() {
     password: ""
   });
   const [loading, setLoading] = useState(false);
+  const isAuthenticated = useSelector(state => state);
   const dispatch = useDispatch();
 
   function handleInputChange(e) {
     e.persist();
-    setFormFields((s) => ({
+    setFormFields(s => ({
       ...s,
       [e.target.name]: e.target.value
     }));
@@ -75,6 +78,10 @@ export default function Login() {
     }
     getData();
     setLoading(false);
+  }
+
+  if (isAuthenticated) {
+    return <Redirect to="/notes" />;
   }
 
   return (
