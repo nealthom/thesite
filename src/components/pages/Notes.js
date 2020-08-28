@@ -13,7 +13,7 @@ const Content = styled.p`
 export default function Notes() {
   return (
     <PageLayout>
-      <Content>These are the notes.</Content>
+      <Content>This will contain a twitter like feed of my thoughts.</Content>
     </PageLayout>
   );
 }

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { PageLayout, CardList } from "components/common";
 import machine from "img/machine.png";
+import sanitize from "img/sanitize.jpg";
 
 const Container = styled.div`
   display: flex;
@@ -13,7 +14,17 @@ export default function Portfolio() {
   return (
     <PageLayout>
       <Container>
+        <p>
+          This webpage is my current project. I have lost interest in the walled
+          gardens of social media, and want to express myself more creatively in
+          my own space on the web.
+        </p>
+        <h3>What I'm working on</h3>
+        <ul>
+          <li>Login page, to use for logging into the feed</li>
+        </ul>
         <h1>Recent Projects</h1>
+
         <CardList
           results={[
             <a
@@ -29,7 +40,19 @@ export default function Portfolio() {
                 the floor when a guest asks about a particular machine. Try it
                 out by typing wolf, we have several of those.
               </p>
-            </a>
+            </a>,
+            <a
+              href="https://the-sanitizers.herokuapp.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <h1>The Sanitizers</h1>
+              <img src={sanitize} alt="machine" />
+              <p>
+                A new company opened this past march to sanitize homes and
+                businesses for Covid-19.
+              </p>
+            </a>,
           ]}
         />
         <a

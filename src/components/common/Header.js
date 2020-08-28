@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 import { Link as ReactRouterLink, useLocation } from "react-router-dom";
+import sun from "../../img/sun.jpg";
 
 const HeaderWrapper = styled.header`
   height: 50px;
@@ -13,7 +14,7 @@ const HeaderWrapper = styled.header`
   position: fixed;
   top: 0;
   left: 0;
-  background: #f5f5f5;
+  background: linear-gradient(to right, #054b86, #87b787);
   @media (min-width: 768px) {
     height: 100px;
   }
@@ -94,6 +95,13 @@ const TitleWrapper = styled(Link)`
   }
 `;
 
+const Styledimage = styled.img`
+  width: 70px;
+  @media (min-width: 768px) {
+    width: 150px;
+  }
+`;
+
 export function Header() {
   const { pathname } = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -102,15 +110,14 @@ export function Header() {
 
   const logout = () => {
     dispatch({
-      type: "LOGOUT"
+      type: "LOGOUT",
     });
     return <Redirect to="/login" />;
   };
   return (
     <HeaderWrapper>
-      <TitleWrapper to="/">
-        <h1>Thomas Neal</h1>
-      </TitleWrapper>
+      <Styledimage src={sun} alt="sun image" />
+
       <MobileMenuIcon onClick={() => setMenuOpen((s) => !s)}>
         <div />
         <div />
@@ -121,7 +128,7 @@ export function Header() {
           Home
         </StyledLink>
         <StyledLink to="/notes" isActive={pathname === "/notes"}>
-          Notes
+          Feed
         </StyledLink>
         <StyledLink to="/portfolio" isActive={pathname === "/portfolio"}>
           Projects
