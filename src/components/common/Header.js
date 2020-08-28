@@ -83,17 +83,17 @@ const MobileMenuIcon = styled.div`
   }
 `;
 
-const TitleWrapper = styled(Link)`
-  display: flex;
-  align-items: center;
-  color: #d8073f;
-  font-size: 0.75rem;
-  text-decoration: none;
+// const TitleWrapper = styled(Link)`
+//   display: flex;
+//   align-items: center;
+//   color: #d8073f;
+//   font-size: 0.75rem;
+//   text-decoration: none;
 
-  @media (min-width: 768px) {
-    font-size: 1.25rem;
-  }
-`;
+//   @media (min-width: 768px) {
+//     font-size: 1.25rem;
+//   }
+// `;
 
 const Styledimage = styled.img`
   width: 70px;
