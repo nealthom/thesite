@@ -13,7 +13,6 @@ const Content = styled.p`
 
 const Styledimage = styled.img`
   width: 100%;
-  height: 200px;
 `;
 
 const Styledlink = styled.a`
