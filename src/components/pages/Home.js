@@ -32,7 +32,7 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          LOVT
+          LOViT
         </Styledlink>{" "}
         trail in Hot Springs, AR
       </Content>
