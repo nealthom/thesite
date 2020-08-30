@@ -59,9 +59,8 @@ export default function Login() {
       const url = "https://arcane-oasis-30423.herokuapp.com/users/login";
       //const url = "https://go0oc.sse.codesandbox.io/login";
       //const url = "http://localhost:3000/users/login";
-      console.log(axios.defaults.headers.common["x-auth-token"]);
       const response = await axios.post(url, formFields);
-      console.log(response);
+
       dispatch({
         type: "LOGIN_SUCCESS",
         payload: response.data
@@ -79,9 +78,8 @@ export default function Login() {
       const url = "https://arcane-oasis-30423.herokuapp.com/users/register";
       //const url = "https://go0oc.sse.codesandbox.io/login";
       //const url = "http://localhost:3000/users/login";
-      console.log(axios.defaults.headers.common["x-auth-token"]);
       const response = await axios.post(url, formFields);
-      console.log(response);
+
       dispatch({
         type: "REGISTER_SUCCESS",
         payload: response.data
