@@ -19,8 +19,8 @@ const CardListWrapper = styled.ul`
 export function CardList({ results }) {
   return (
     <CardListWrapper>
-      {results.map((data) => (
-        <Card>{data}</Card>
+      {results.map((data, index) => (
+        <Card key={index}>{data}</Card>
       ))}
     </CardListWrapper>
   );
