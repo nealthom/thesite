@@ -10,15 +10,18 @@ const initialState = {
 
 export default function (state = initialState, action) {
   const { type, payload } = action;
-  console.log(action);
+
   switch (type) {
     case REGISTER_SUCCESS:
     case LOGIN_SUCCESS:
       localStorage.setItem("token", payload.token);
+      console.log(payload.user);
+      const isMe = payload.user.isMe;
 
       return {
         ...state,
         ...payload,
+        isMe: isMe,
         isAuthenticated: true,
         loading: false
       };

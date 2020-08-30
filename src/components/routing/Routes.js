@@ -5,6 +5,7 @@ import Login from "../pages/Login";
 import Portfolio from "../pages/Portfolio";
 import Notes from "../pages/Notes";
 import Blog from "../pages/Blog";
+import Dashboard from "../pages/Dashboard";
 
 const Routes = () => {
   return (
@@ -17,6 +18,9 @@ const Routes = () => {
       </Route>
       <Route exact path="/notes">
         <Notes />
+      </Route>
+      <Route exact path="/dashboard">
+        <Dashboard />
       </Route>
       <Route exact path="/blog">
         <Blog />

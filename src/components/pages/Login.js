@@ -38,7 +38,8 @@ export default function Login() {
     password: ""
   });
   const [loading, setLoading] = useState(false);
-  const isAuthenticated = useSelector((state) => state.isAuthenticated);
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const me = useSelector((state) => state.auth.isMe);
 
   const dispatch = useDispatch();
 
@@ -55,11 +56,11 @@ export default function Login() {
     setLoading(true);
 
     async function getData() {
-      const url = "https://arcane-oasis-30423.herokuapp.com/users";
+      const url = "https://arcane-oasis-30423.herokuapp.com/users/login";
       //const url = "https://go0oc.sse.codesandbox.io/login";
       //const url = "http://localhost:3000/users/login";
       console.log(axios.defaults.headers.common["x-auth-token"]);
-      const response = await axios.get(url);
+      const response = await axios.post(url, formFields);
       console.log(response);
       dispatch({
         type: "LOGIN_SUCCESS",
@@ -70,8 +71,32 @@ export default function Login() {
     setLoading(false);
   }
 
-  if (isAuthenticated) {
+  function handleRegister(e) {
+    e.preventDefault();
+    setLoading(true);
+
+    async function getData() {
+      const url = "https://arcane-oasis-30423.herokuapp.com/users/register";
+      //const url = "https://go0oc.sse.codesandbox.io/login";
+      //const url = "http://localhost:3000/users/login";
+      console.log(axios.defaults.headers.common["x-auth-token"]);
+      const response = await axios.post(url, formFields);
+      console.log(response);
+      dispatch({
+        type: "REGISTER_SUCCESS",
+        payload: response.data
+      });
+    }
+    getData();
+    setLoading(false);
+  }
+
+  if (isAuthenticated && !me) {
     return <Redirect to="/notes" />;
+  }
+
+  if (isAuthenticated && me) {
+    return <Redirect to="/dashboard" />;
   }
 
   return (
@@ -111,7 +136,7 @@ export default function Login() {
         {!loading && (
           <>
             <div className="alt-text">or</div>
-            <Button secondary type="buttom">
+            <Button secondary type="buttom" onClick={handleRegister}>
               Register
             </Button>
           </>

@@ -105,12 +105,13 @@ const Styledimage = styled.img`
 export function Header() {
   const { pathname } = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
-  const isAuthenticated = useSelector((state) => state.isAuthenticated);
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const me = useSelector((state) => state.auth.isMe);
   const dispatch = useDispatch();
 
   const logout = () => {
     dispatch({
-      type: "LOGOUT",
+      type: "LOGOUT"
     });
     return <Redirect to="/login" />;
   };
@@ -141,6 +142,11 @@ export function Header() {
         {isAuthenticated && (
           <StyledLink to="/login" onClick={logout}>
             Logout
+          </StyledLink>
+        )}
+        {isAuthenticated && me && (
+          <StyledLink to="/dashboard" isActive={pathname === "/dashboard"}>
+            Dashboard
           </StyledLink>
         )}
       </Menu>
