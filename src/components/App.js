@@ -8,6 +8,7 @@ import LightTheme from "themes/light";
 import DarkTheme from "themes/dark";
 
 import setAuthToken from "../utils/setAuthToken";
+import ScrollToTop from "../utils/ScrollToTop";
 
 import { Provider } from "react-redux";
 import store from "../store";
@@ -44,6 +45,7 @@ export default function App() {
       >
         <GlobalStyle />
         <BrowserRouter>
+          <ScrollToTop />
           <Switch>
             <Route exact path="/">
               <Home />
