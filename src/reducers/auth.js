@@ -1,17 +1,30 @@
-import { REGISTER_SUCCESS, LOGIN_SUCCESS, LOGOUT } from "../actions/types";
+import {
+  USER_LOADED,
+  AUTH_ERROR,
+  REGISTER_SUCCESS,
+  LOGIN_SUCCESS,
+  LOGOUT,
+} from "../actions/types";
 
 const initialState = {
   token: localStorage.getItem("token"),
   isAuthenticated: null,
   loading: true,
   user: null,
-  isMe: null
+  isMe: null,
 };
 
 export default function (state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
+    case USER_LOADED:
+      return {
+        ...state,
+        isAuthenticated: true,
+        loading: false,
+        user: payload,
+      };
     case REGISTER_SUCCESS:
     case LOGIN_SUCCESS:
       localStorage.setItem("token", payload.token);
@@ -22,17 +35,18 @@ export default function (state = initialState, action) {
         ...payload,
         isMe: isMe,
         isAuthenticated: true,
-        loading: false
+        loading: false,
       };
 
     case LOGOUT:
+    case AUTH_ERROR:
       localStorage.removeItem("token");
       return {
         ...state,
         token: null,
         isAuthenticated: false,
         loading: false,
-        isMe: false
+        isMe: false,
       };
     default:
       return state;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
@@ -12,6 +12,7 @@ import ScrollToTop from "../utils/ScrollToTop";
 
 import { Provider } from "react-redux";
 import store from "../store";
+import { loadUser } from "../actions/auth";
 
 const GlobalStyle = createGlobalStyle`
 
@@ -33,6 +34,9 @@ if (localStorage.token) {
 
 export default function App() {
   const [theme, setTheme] = useState(LightTheme);
+  useEffect(() => {
+    store.dispatch(loadUser());
+  }, []);
   return (
     <Provider store={store}>
       <ThemeProvider
@@ -40,7 +44,7 @@ export default function App() {
           ...theme,
           setTheme: () => {
             setTheme((s) => (s.id === "light" ? DarkTheme : LightTheme));
-          }
+          },
         }}
       >
         <GlobalStyle />
