@@ -12,7 +12,7 @@ export const loadUser = () => async (dispatch) => {
       "https://arcane-oasis-30423.herokuapp.com/users/me"
     );
     // const res = await axios.get("https://go0oc.sse.codesandbox.io/users/me");
-    console.log(res);
+
     dispatch({
       type: USER_LOADED,
       payload: res.data
