@@ -1,11 +1,5 @@
 import axios from "axios";
-import {
-  USER_LOADED,
-  REGISTER_SUCCESS,
-  LOGIN_SUCCESS,
-  LOGOUT,
-  AUTH_ERROR
-} from "../actions/types";
+import { USER_LOADED, AUTH_ERROR } from "../actions/types";
 import setAuthToken from "../utils/setAuthToken";
 
 //Load User
