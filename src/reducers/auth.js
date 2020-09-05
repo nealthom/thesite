@@ -3,7 +3,7 @@ import {
   AUTH_ERROR,
   REGISTER_SUCCESS,
   LOGIN_SUCCESS,
-  LOGOUT,
+  LOGOUT
 } from "../actions/types";
 
 const initialState = {
@@ -11,7 +11,7 @@ const initialState = {
   isAuthenticated: null,
   loading: true,
   user: null,
-  isMe: null,
+  isMe: null
 };
 
 export default function (state = initialState, action) {
@@ -24,6 +24,7 @@ export default function (state = initialState, action) {
         isAuthenticated: true,
         loading: false,
         user: payload,
+        isMe: payload.isMe
       };
     case REGISTER_SUCCESS:
     case LOGIN_SUCCESS:
@@ -35,7 +36,7 @@ export default function (state = initialState, action) {
         ...payload,
         isMe: isMe,
         isAuthenticated: true,
-        loading: false,
+        loading: false
       };
 
     case LOGOUT:
@@ -46,7 +47,7 @@ export default function (state = initialState, action) {
         token: null,
         isAuthenticated: false,
         loading: false,
-        isMe: false,
+        isMe: false
       };
     default:
       return state;
