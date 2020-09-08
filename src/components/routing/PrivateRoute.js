@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 const PrivateRoute = ({ component: Component, path: Path, ...props }) => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const loading = useSelector((state) => state.auth.loading);
-  console.log(`Privateland: ${isAuthenticated}`);
+
   if (!isAuthenticated) {
     return <Redirect to="/login" />;
   }
