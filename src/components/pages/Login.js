@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-import axios from "axios";
+import { register, login } from "../../actions/auth";
+import store from "../../store";
 import {
   PageLayout,
   Input,
@@ -41,8 +42,6 @@ export default function Login() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const me = useSelector((state) => state.auth.isMe);
 
-  const dispatch = useDispatch();
-
   function handleInputChange(e) {
     e.persist();
     setFormFields((s) => ({
@@ -54,38 +53,14 @@ export default function Login() {
   function handleSubmit(e) {
     e.preventDefault();
     setLoading(true);
-
-    async function getData() {
-      const url = "https://arcane-oasis-30423.herokuapp.com/users/login";
-      //const url = "https://go0oc.sse.codesandbox.io/login";
-      //const url = "http://localhost:3000/users/login";
-      const response = await axios.post(url, formFields);
-
-      dispatch({
-        type: "LOGIN_SUCCESS",
-        payload: response.data
-      });
-    }
-    getData();
+    store.dispatch(login(formFields));
     setLoading(false);
   }
 
-  function handleRegister(e) {
+  async function handleRegister(e) {
     e.preventDefault();
     setLoading(true);
-
-    async function getData() {
-      const url = "https://arcane-oasis-30423.herokuapp.com/users/register";
-      //const url = "https://go0oc.sse.codesandbox.io/login";
-      //const url = "http://localhost:3000/users/login";
-      const response = await axios.post(url, formFields);
-
-      dispatch({
-        type: "REGISTER_SUCCESS",
-        payload: response.data
-      });
-    }
-    getData();
+    store.dispatch(register(formFields));
     setLoading(false);
   }
 

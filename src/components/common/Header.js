@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { Link as ReactRouterLink, useLocation } from "react-router-dom";
+import store from "../../store";
+import { logout } from "../../actions/auth";
 import sun from "../../img/sun.jpg";
 
 const HeaderWrapper = styled.header`
@@ -83,18 +85,6 @@ const MobileMenuIcon = styled.div`
   }
 `;
 
-// const TitleWrapper = styled(Link)`
-//   display: flex;
-//   align-items: center;
-//   color: #d8073f;
-//   font-size: 0.75rem;
-//   text-decoration: none;
-
-//   @media (min-width: 768px) {
-//     font-size: 1.25rem;
-//   }
-// `;
-
 const Styledimage = styled.img`
   width: 70px;
   @media (min-width: 768px) {
@@ -107,12 +97,9 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const me = useSelector((state) => state.auth.isMe);
-  const dispatch = useDispatch();
 
-  const logout = () => {
-    dispatch({
-      type: "LOGOUT"
-    });
+  const logoutUser = () => {
+    store.dispatch(logout());
     return <Redirect to="/login" />;
   };
   return (
@@ -140,7 +127,7 @@ export function Header() {
           </StyledLink>
         )}
         {isAuthenticated && (
-          <StyledLink to="/login" onClick={logout}>
+          <StyledLink to="/login" onClick={logoutUser}>
             Logout
           </StyledLink>
         )}
