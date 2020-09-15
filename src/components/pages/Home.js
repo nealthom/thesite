@@ -24,7 +24,7 @@ export default function Home() {
   return (
     <PageLayout>
       <Content>
-        Welcome to my world. 9/8/20
+        Welcome to my world.
         <Styledimage src={hike} alt="hiking image" />
         I'm a hiking fanatic. This is from the{" "}
         <Styledlink
