@@ -32,7 +32,7 @@ const Menu = styled.nav`
   padding: 8px;
   box-sizing: border-box;
   background: ${(p) => p.theme.bodyBackgroundColor};
-  border-bottom: ${(p) => p.theme.secondaryColor} solid 3px;
+  border-bottom: #054b86 solid 3px;
 
   @media (min-width: 768px) {
     display: flex;
