@@ -14,6 +14,8 @@ import { Provider } from "react-redux";
 import store from "../store";
 import { loadUser } from "../actions/auth";
 
+import bcircle from "../img/bcircle.jpg";
+
 const GlobalStyle = createGlobalStyle`
 
 *{
@@ -21,10 +23,11 @@ const GlobalStyle = createGlobalStyle`
   }
 
 body{
-  background: ${(p) => p.theme.bodyBackgroundColor};
+  background:url(${bcircle}) no-repeat center center fixed;
+  background-size: cover;
   min-height: 100vh;
-  color: ${(p) => p.theme.bodyFontColor};
-  font-family: 'Kaushan Script'
+  color: white;;
+  font-family: 'VT323'
 }
 `;
 
@@ -44,7 +47,7 @@ export default function App() {
           ...theme,
           setTheme: () => {
             setTheme((s) => (s.id === "light" ? DarkTheme : LightTheme));
-          },
+          }
         }}
       >
         <GlobalStyle />

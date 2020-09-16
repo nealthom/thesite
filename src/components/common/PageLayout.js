@@ -7,7 +7,7 @@ const Content = styled.main`
   margin: 80px auto 0 auto;
   padding: 0 16px;
   box-sizing: border-box;
-  font-family: "Open Sans";
+  font-family: "VT323";
 
   h1,
   h2,
@@ -15,7 +15,7 @@ const Content = styled.main`
   h4,
   h5,
   h6 {
-    font-family: "Kaushan Script";
+    font-family: "VT323";
   }
 
   @media (min-width: 768px) {
