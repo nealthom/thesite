@@ -8,8 +8,14 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: black;
+  padding: 2rem;
+  border: white solid 3px;
 `;
 
+const Completed = styled.li`
+  text-decoration: line-through;
+`;
 export default function Portfolio() {
   return (
     <PageLayout>
@@ -21,7 +27,9 @@ export default function Portfolio() {
         </p>
         <h3>What I'm working on</h3>
         <ul>
-          <li>Login page, to use for logging into the feed</li>
+          <Completed>Login page, to use for logging into the feed</Completed>
+          <Completed>Backend for posts to the feed</Completed>
+          <li>Dashboard section to create posts on front end</li>
         </ul>
         <h1>Recent Projects</h1>
 
@@ -52,7 +60,7 @@ export default function Portfolio() {
                 A new company opened this past march to sanitize homes and
                 businesses for Covid-19.
               </p>
-            </a>,
+            </a>
           ]}
         />
         <a
