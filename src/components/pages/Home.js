@@ -8,6 +8,7 @@ const Content = styled.div`
   background: black;
   border: white solid 3px;
   background-size: cover;
+  border-radius: 5px;
   padding: 2rem;
   @media (min-width: 768px) {
     font-size: 3.25rem;
