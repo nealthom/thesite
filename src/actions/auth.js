@@ -36,7 +36,7 @@ export const loadUser = () => async (dispatch) => {
 // Register a new user
 export const register = ({ name, email, password }) => async (dispatch) => {
   try {
-    const url = "https://arcane-oasis-30423.herokuapp.com/posts";
+    const url = "https://arcane-oasis-30423.herokuapp.com/users/register";
     //const url = "https://go0oc.sse.codesandbox.io/login";
     //const url = "http://localhost:3000/users/login";
     const response = await axios.post(url, {

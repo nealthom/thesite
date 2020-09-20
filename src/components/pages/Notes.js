@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { PageLayout } from "components/common";
 
 import hike from "../../img/hike.jpg";
+import { getPosts } from "../../actions/post";
 
 const Content = styled.div`
   font-size: 2.5rem;
@@ -27,6 +28,10 @@ const Styledlink = styled.a`
 `;
 
 export default function Notes() {
+  useEffect(() => {
+    getPosts();
+  });
+
   return (
     <PageLayout>
       <Content>

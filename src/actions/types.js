@@ -5,3 +5,5 @@ export const USER_LOADED = "USER_LOADED";
 export const AUTH_ERROR = "AUTH_ERROR";
 export const REGISTER_FAIL = "REGISTER_FAIL";
 export const LOGIN_FAIL = "LOGIN_FAIL";
+export const GET_POSTS = "GET_POSTS";
+export const POST_ERROR = "POST_ERROR";
