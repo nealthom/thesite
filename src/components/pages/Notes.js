@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { PageLayout } from "components/common";
 
 import hike from "../../img/hike.jpg";
+import store from "../../store";
 import { getPosts } from "../../actions/post";
 
 const Content = styled.div`
@@ -29,8 +31,10 @@ const Styledlink = styled.a`
 
 export default function Notes() {
   useEffect(() => {
-    getPosts();
-  });
+    store.dispatch(getPosts());
+  }, []);
+
+  const posts = useSelector((state) => state.post.posts);
 
   return (
     <PageLayout>
@@ -46,6 +50,9 @@ export default function Notes() {
           LOViT
         </Styledlink>{" "}
         trail in Hot Springs, AR
+        {posts.map((post) => (
+          <h1>{post.text}</h1>
+        ))}
       </Content>
     </PageLayout>
   );

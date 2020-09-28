@@ -6,7 +6,6 @@ export const getPosts = () => async (dispatch) => {
     const res = await axios.get(
       "https://arcane-oasis-30423.herokuapp.com/posts"
     );
-    console.log(res);
     dispatch({
       type: GET_POSTS,
       payload: res.data
