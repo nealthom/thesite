@@ -50,9 +50,11 @@ export default function Notes() {
           LOViT
         </Styledlink>{" "}
         trail in Hot Springs, AR
-        {posts.map((post) => (
-          <h1>{post.text}</h1>
-        ))}
+        <ul>
+          {posts.map((post) => (
+            <li>{post.text}</li>
+          ))}
+        </ul>
       </Content>
     </PageLayout>
   );
