@@ -29,7 +29,8 @@ export default function Portfolio() {
         <ul>
           <Completed>Login page, to use for logging into the feed</Completed>
           <Completed>Backend for posts to the feed</Completed>
-          <li>Dashboard section to create posts on front end</li>
+          <Completed>Dashboard section to create posts on front end</Completed>
+          <li>Allow users to comment on posts</li>
         </ul>
         <h1>Recent Projects</h1>
 
