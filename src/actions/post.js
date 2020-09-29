@@ -21,8 +21,8 @@ export const getPosts = () => async (dispatch) => {
 export const addPost = (formData) => async (dispatch) => {
   try {
     const res = await axios.post(
-      formData,
-      "https://arcane-oasis-30423.herokuapp.com/posts"
+      "https://arcane-oasis-30423.herokuapp.com/posts",
+      formData
     );
     dispatch({
       type: ADD_POST,

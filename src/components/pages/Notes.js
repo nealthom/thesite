@@ -52,7 +52,10 @@ export default function Notes() {
         trail in Hot Springs, AR
         <ul>
           {posts.map((post) => (
-            <li>{post.text}</li>
+            <li key={post._id}>
+              {post.text}
+              {new Date(post.date).toLocaleDateString("en")}
+            </li>
           ))}
         </ul>
       </Content>
