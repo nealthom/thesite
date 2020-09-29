@@ -30,6 +30,10 @@ const Styledlink = styled.a`
   text-decoration: none;
 `;
 
+const StyledDate = styled.span`
+  font-size: 1.5rem;
+`;
+
 export default function Notes() {
   useEffect(() => {
     store.dispatch(getPosts());
@@ -54,8 +58,8 @@ export default function Notes() {
       </Content>
       {posts.map((post) => (
         <Content key={post._id}>
-          {post.text}
-          {new Date(post.date).toLocaleDateString()}
+          <p>{post.text}</p>
+          <StyledDate>{new Date(post.date).toLocaleDateString()}</StyledDate>
         </Content>
       ))}
     </PageLayout>
