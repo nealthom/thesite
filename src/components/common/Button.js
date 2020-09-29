@@ -18,8 +18,7 @@ const largeStyles = ({ large }) => {
 
 const Button = styled.button`
   color: white;
-  background: ${(p) =>
-    p.secondary ? p.theme.secondaryColor : p.theme.primaryColor};
+  background: black;
   font-weight: bold;
   ${largeStyles}
   box-shadow: none;
