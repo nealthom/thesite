@@ -54,7 +54,7 @@ export default function Notes() {
           {posts.map((post) => (
             <li key={post._id}>
               {post.text}
-              {new Date(post.date).toLocaleDateString("en")}
+              {new Date(post.date).toLocaleDateString()}
             </li>
           ))}
         </ul>
