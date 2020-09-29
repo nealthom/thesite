@@ -69,7 +69,7 @@ export default function Portfolio() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <h3>more at my github</h3>
+          <h3>more at my github page</h3>
         </a>
       </Container>
     </PageLayout>
