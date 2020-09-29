@@ -36,7 +36,7 @@ export default function Portfolio() {
         <CardList
           results={[
             <a
-              href="http://csb-1mhb6.netlify.com/"
+              href="https://csb-fpo06.netlify.app/"
               target="_blank"
               rel="noopener noreferrer"
             >
