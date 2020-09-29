@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_POSTS, POST_ERROR } from "./types";
+import { GET_POSTS, POST_ERROR, ADD_POST } from "./types";
 
 export const getPosts = () => async (dispatch) => {
   try {
@@ -8,6 +8,24 @@ export const getPosts = () => async (dispatch) => {
     );
     dispatch({
       type: GET_POSTS,
+      payload: res.data
+    });
+  } catch (error) {
+    dispatch({
+      type: POST_ERROR,
+      payload: { error }
+    });
+  }
+};
+
+export const addPost = (formData) => async (dispatch) => {
+  try {
+    const res = await axios.post(
+      formData,
+      "https://arcane-oasis-30423.herokuapp.com/posts"
+    );
+    dispatch({
+      type: ADD_POST,
       payload: res.data
     });
   } catch (error) {
