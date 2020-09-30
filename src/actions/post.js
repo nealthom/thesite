@@ -62,7 +62,6 @@ export const getPost = (postId) => async (dispatch) => {
 
 export const addComment = (postId, formData) => async (dispatch) => {
   try {
-    console.log(formData);
     const res = await axios.post(
       `https://arcane-oasis-30423.herokuapp.com/posts/comment/${postId}`,
       formData
