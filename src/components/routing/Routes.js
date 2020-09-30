@@ -7,6 +7,7 @@ import Portfolio from "../pages/Portfolio";
 import Notes from "../pages/Notes";
 import Blog from "../pages/Blog";
 import Dashboard from "../pages/Dashboard";
+import Post from "../post/Post";
 
 const Routes = () => {
   return (
@@ -21,6 +22,7 @@ const Routes = () => {
         <Notes />
       </Route>
       <PrivateRoute exact path="/dashboard" component={Dashboard} />
+      <PrivateRoute exact path="/posts/:id" component={Post} />
       <Route exact path="/blog">
         <Blog />
       </Route>

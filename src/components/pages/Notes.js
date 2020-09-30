@@ -7,6 +7,8 @@ import hike from "../../img/hike.jpg";
 import store from "../../store";
 import { getPosts } from "../../actions/post";
 
+import PostItem from "../posts/PostItem";
+
 const Content = styled.div`
   font-size: 2.5rem;
   background: black;
@@ -28,10 +30,6 @@ const Styledimage = styled.img`
 const Styledlink = styled.a`
   color: blue;
   text-decoration: none;
-`;
-
-const StyledDate = styled.span`
-  font-size: 1.5rem;
 `;
 
 export default function Notes() {
@@ -57,10 +55,7 @@ export default function Notes() {
         trail in Hot Springs, AR
       </Content>
       {posts.map((post) => (
-        <Content key={post._id}>
-          <p>{post.text}</p>
-          <StyledDate>{new Date(post.date).toLocaleDateString()}</StyledDate>
-        </Content>
+        <PostItem key={post._id} post={post} />
       ))}
     </PageLayout>
   );

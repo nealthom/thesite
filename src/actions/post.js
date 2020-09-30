@@ -44,6 +44,7 @@ export const addPost = (formData) => async (dispatch) => {
 
 export const getPost = (postId) => async (dispatch) => {
   try {
+    console.log(postId);
     const res = await axios.get(
       `https://arcane-oasis-30423.herokuapp.com/posts/${postId}`
     );
