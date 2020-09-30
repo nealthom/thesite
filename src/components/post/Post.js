@@ -14,10 +14,10 @@ const Post = () => {
   }, [id]);
 
   const post = useSelector((store) => store.post.post);
-  console.log(post);
+
   return (
     <PageLayout>
-      <PostItem post={post} />
+      {post && <PostItem post={post} showActions={false} />}
     </PageLayout>
   );
 };

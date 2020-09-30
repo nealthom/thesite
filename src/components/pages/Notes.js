@@ -55,7 +55,7 @@ export default function Notes() {
         trail in Hot Springs, AR
       </Content>
       {posts.map((post) => (
-        <PostItem key={post._id} post={post} />
+        <PostItem key={post._id} post={post} showActions />
       ))}
     </PageLayout>
   );
