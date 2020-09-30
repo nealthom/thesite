@@ -7,3 +7,4 @@ export * from "./Spinner";
 export * from "./Toggle";
 export * from "./CardList";
 export * from "./Card";
+export * from "./Form";

@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { Button, Form } from "../common";
-import { addPost } from "../../actions/post";
+import { addComment } from "../../actions/post";
 import store from "../../store";
 
-const PostForm = () => {
+const CommentForm = ({ postId }) => {
   const [text, setText] = useState("");
 
   return (
     <Form
       onSubmit={(e) => {
         e.preventDefault();
-        store.dispatch(addPost({ text }));
+        store.dispatch(addComment(postId, { text }));
         setText("");
       }}
     >
@@ -22,10 +22,10 @@ const PostForm = () => {
         onChange={(e) => setText(e.target.value)}
       />
       <Button type="submit" value="Submit">
-        POST
+        Leave Comment
       </Button>
     </Form>
   );
 };
 
-export default PostForm;
+export default CommentForm;

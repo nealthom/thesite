@@ -5,6 +5,8 @@ import { PageLayout } from "components/common";
 import PostItem from "../posts/PostItem";
 import store from "../../store";
 import { getPost } from "../../actions/post";
+import CommentForm from "./CommentForm";
+import CommentItem from "./CommentItem";
 
 const Post = () => {
   const { id } = useParams();
@@ -17,7 +19,21 @@ const Post = () => {
 
   return (
     <PageLayout>
-      {post && <PostItem post={post} showActions={false} />}
+      {post && (
+        <div>
+          <PostItem post={post} showActions={false} />
+          <CommentForm postId={post._id} />
+          <div>
+            {post.comments.map((comment) => (
+              <CommentItem
+                key={comment._id}
+                comment={comment}
+                postId={post._id}
+              />
+            ))}
+          </div>
+        </div>
+      )}
     </PageLayout>
   );
 };
