@@ -1,16 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { TextBox } from "../common";
 
 const PostItem = ({
   post: { _id, text, name, user, comments, date },
   showActions
 }) => {
   return (
-    <div>
+    <TextBox>
       <p>{text}</p>
-      <p>{date}</p>
+      <p>{new Date(date).toLocaleString()}</p>
       {showActions && <Link to={`/posts/${_id}`}>Discussion</Link>}
-    </div>
+    </TextBox>
   );
 };
 

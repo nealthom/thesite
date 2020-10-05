@@ -17,7 +17,7 @@ const CommentForm = ({ postId }) => {
       <textarea
         cols="35"
         rows="5"
-        placeholder="Create a post"
+        placeholder="Leave a comment"
         value={text}
         onChange={(e) => setText(e.target.value)}
       />

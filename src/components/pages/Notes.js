@@ -1,26 +1,13 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import { PageLayout } from "components/common";
+import { PageLayout, TextBox } from "components/common";
 
 import hike from "../../img/hike.jpg";
 import store from "../../store";
 import { getPosts } from "../../actions/post";
 
 import PostItem from "../posts/PostItem";
-
-const Content = styled.div`
-  font-size: 2.5rem;
-  background: black;
-  border: solid white 3px;
-  background-size: cover;
-  border-radius: 5px;
-  padding: 2rem;
-  margin-bottom: 2rem;
-  @media (min-width: 768px) {
-    font-size: 3.25rem;
-  }
-`;
 
 const Styledimage = styled.img`
   width: 100%;
@@ -41,7 +28,7 @@ export default function Notes() {
 
   return (
     <PageLayout>
-      <Content>
+      <TextBox>
         {" "}
         <Styledimage src={hike} alt="hiking image" />
         I'm a hiking fanatic. This is from the{" "}
@@ -53,7 +40,7 @@ export default function Notes() {
           LOViT
         </Styledlink>{" "}
         trail in Hot Springs, AR
-      </Content>
+      </TextBox>
       {posts.map((post) => (
         <PostItem key={post._id} post={post} showActions />
       ))}

@@ -21,17 +21,16 @@ const Post = () => {
     <PageLayout>
       {post && (
         <div>
-          <PostItem post={post} showActions={false} />
           <CommentForm postId={post._id} />
-          <div>
-            {post.comments.map((comment) => (
-              <CommentItem
-                key={comment._id}
-                comment={comment}
-                postId={post._id}
-              />
-            ))}
-          </div>
+          <PostItem post={post} showActions={false} />
+
+          {post.comments.map((comment) => (
+            <CommentItem
+              key={comment._id}
+              comment={comment}
+              postId={post._id}
+            />
+          ))}
         </div>
       )}
     </PageLayout>
