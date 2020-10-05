@@ -7,6 +7,7 @@ const TextBox = styled.div`
   background-size: cover;
   border-radius: 5px;
   padding: 2rem;
+  margin-bottom: 2rem;
   @media (min-width: 768px) {
     font-size: 3.25rem;
   }
