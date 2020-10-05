@@ -1,10 +1,11 @@
 import React from "react";
+import { TextBox } from "components/common";
 
 const CommentItem = ({ postId, comment: { _id, text, name, user, date } }) => {
   return (
-    <div>
+    <TextBox>
       <p>{text}</p>
-    </div>
+    </TextBox>
   );
 };
 

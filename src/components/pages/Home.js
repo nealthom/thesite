@@ -1,19 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import styled from "styled-components";
-import { PageLayout } from "components/common";
-
-const Content = styled.div`
-  font-size: 2.5rem;
-  background: black;
-  border: white solid 3px;
-  background-size: cover;
-  border-radius: 5px;
-  padding: 2rem;
-  @media (min-width: 768px) {
-    font-size: 3.25rem;
-  }
-`;
+import { PageLayout, TextBox } from "components/common";
 
 export default function Home() {
   const user = useSelector((state) =>
@@ -22,10 +9,10 @@ export default function Home() {
 
   return (
     <PageLayout>
-      <Content>
+      <TextBox>
         Welcome {user ? user : "Visitor"}, I'm Thomas Neal, Have a look at my
         feed. More coming soon...
-      </Content>
+      </TextBox>
     </PageLayout>
   );
 }
