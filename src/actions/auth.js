@@ -41,8 +41,7 @@ export const register = ({ name, email, password }) => async (dispatch) => {
     const response = await axios.post(url, {
       name,
       email,
-      password,
-      text: "This is my first comment"
+      password
     });
     dispatch({
       type: REGISTER_SUCCESS,
