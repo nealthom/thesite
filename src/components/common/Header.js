@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
+import { HamburgerCollapse } from "react-animated-burgers";
 import { Link as ReactRouterLink, useLocation } from "react-router-dom";
 import store from "../../store";
 import { logout } from "../../actions/auth";
@@ -12,6 +13,7 @@ const HeaderWrapper = styled.header`
   width: 100%;
   box-sizing: border-box;
   display: flex;
+  justify-content: space-between;
   padding: 0 16px;
   position: fixed;
   top: 0;
@@ -102,15 +104,23 @@ export function Header() {
     store.dispatch(logout());
     return <Redirect to="/login" />;
   };
+
+  const [isActive, setIsActive] = useState(false);
+
+  const toggleButton = useCallback(() => {
+    setMenuOpen((prevState) => !prevState);
+    setIsActive((prevState) => !prevState);
+  }, []);
   return (
     <HeaderWrapper>
       <Styledimage src={sun} alt="sun image" />
 
-      <MobileMenuIcon onClick={() => setMenuOpen((s) => !s)}>
-        <div />
-        <div />
-        <div />
-      </MobileMenuIcon>
+      <HamburgerCollapse
+        buttonColor="#054b86"
+        barColor="black"
+        buttonHeight={20}
+        {...{ isActive, toggleButton }}
+      />
       <Menu open={menuOpen}>
         <StyledLink to="/" isActive={pathname === "/"}>
           Home
