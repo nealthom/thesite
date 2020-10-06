@@ -1,5 +1,14 @@
 import React from "react";
+import styled from "styled-components";
 import { TextBox } from "components/common";
+
+const StyledName = styled.span`
+  font-size: 1.25rem;
+`;
+
+const StyledDate = styled.span`
+  font-size: 1.25rem;
+`;
 
 const CommentItem = ({ postId, comment: { _id, text, name, user, date } }) => {
   return (
@@ -7,9 +16,9 @@ const CommentItem = ({ postId, comment: { _id, text, name, user, date } }) => {
       <p>
         {text}
         <br />
-        <span>{name}</span>
+        <StyledName>{name}</StyledName>
         <br />
-        <span>{new Date(date).toLocaleDateString()}</span>
+        <StyledDate>{new Date(date).toLocaleString()}</StyledDate>
       </p>
     </TextBox>
   );
