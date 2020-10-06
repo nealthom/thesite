@@ -9,7 +9,7 @@ const PostItem = ({
   return (
     <TextBox>
       <p>{text}</p>
-      <p>{new Date(date).toLocaleString()}</p>
+      <p>{new Date(date).toLocaleDateString()}</p>
       {showActions && <Link to={`/posts/${_id}`}>Discussion</Link>}
     </TextBox>
   );
