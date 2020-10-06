@@ -8,6 +8,11 @@ const TextBox = styled.div`
   border-radius: 5px;
   padding: 2rem;
   margin-bottom: 2rem;
+
+  > a {
+    color: blue;
+    text-decoration: none;
+  }
   @media (min-width: 768px) {
     font-size: 3.25rem;
   }
