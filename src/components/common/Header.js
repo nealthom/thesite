@@ -24,6 +24,13 @@ const HeaderWrapper = styled.header`
   }
 `;
 
+const StyledBurger = styled(HamburgerCollapse)`
+  color: red;
+  @media (min-width: 768px) {
+    display: none;
+  }
+`;
+
 const Menu = styled.nav`
   display: ${(p) => (p.open ? "block" : "none")};
   font-family: "Open Sans";
@@ -63,30 +70,6 @@ const StyledLink = styled(Link)`
   color: ${(p) => p.theme.bodyFontColor};
 `;
 
-const MobileMenuIcon = styled.div`
-  margin: auto 0 auto auto;
-  width: 25px;
-  min-width: 25px;
-  padding: 5px;
-
-  &:hover {
-    > div {
-      margin-top: 7px;
-    }
-  }
-
-  > div {
-    height: 3px;
-    background: ${(p) => p.theme.bodyFontColor};
-    margin: 5px 0;
-    width: 100%;
-  }
-
-  @media (min-width: 768px) {
-    display: none;
-  }
-`;
-
 const Styledimage = styled.img`
   width: 70px;
   @media (min-width: 768px) {
@@ -115,10 +98,13 @@ export function Header() {
     <HeaderWrapper>
       <Styledimage src={sun} alt="sun image" />
 
-      <HamburgerCollapse
+      <StyledBurger
         buttonColor="#054b86"
         barColor="black"
         buttonHeight={20}
+        buttonStyle={{
+          border: "none"
+        }}
         {...{ isActive, toggleButton }}
       />
       <Menu open={menuOpen}>
