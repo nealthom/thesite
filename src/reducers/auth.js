@@ -12,7 +12,7 @@ const initialState = {
   token: localStorage.getItem("token"),
   isAuthenticated: null,
   loading: true,
-  user: null,
+  user: localStorage.getItem("user") ? localStorage.getItem("user") : null,
   isMe: null
 };
 
@@ -31,6 +31,7 @@ export default function (state = initialState, action) {
     case REGISTER_SUCCESS:
     case LOGIN_SUCCESS:
       localStorage.setItem("token", payload.token);
+      localStorage.setItem("user", payload.user);
       const isMe = payload.user.isMe;
 
       return {
