@@ -44,7 +44,6 @@ export const register = ({ name, email, password }) => async (dispatch) => {
       password,
       text: "This is my first comment"
     });
-    console.log(response);
     dispatch({
       type: REGISTER_SUCCESS,
       payload: response.data
@@ -66,7 +65,6 @@ export const login = ({ email, password }) => async (dispatch) => {
       email,
       password
     });
-    console.log(response);
     dispatch({
       type: LOGIN_SUCCESS,
       payload: response.data
