@@ -21,8 +21,9 @@ const Post = () => {
     <PageLayout>
       {post && (
         <div>
-          <PostItem post={post} showActions={false} />
           <CommentForm postId={post._id} />
+          <PostItem post={post} showActions={false} />
+
           <div>
             {post.comments.map((comment) => (
               <CommentItem
