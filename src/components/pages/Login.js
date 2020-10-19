@@ -82,7 +82,7 @@ export default function Login() {
           <>
             <Input
               name="name"
-              placeholder="Username"
+              placeholder="Username - To Register"
               onChange={handleInputChange}
               value={formFields.username}
               type="text"
